@@ -1,5 +1,22 @@
-import sum from './script';
+import { reverseString, capitalize } from './script';
 
-test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3);
+describe('reverseString', () => {
+  test('reverses single word', () => {
+    expect(reverseString('hello')).toEqual('olleh');
+  });
+
+  test('reverses multiple words', () => {
+    expect(reverseString('hello there')).toEqual('ereht olleh');
+  });
+
+  test('works with numbers and punctuation', () => {
+    expect(reverseString('123! abc!')).toEqual('!cba !321');
+  });
+  test('works with blank strings', () => {
+    expect(reverseString('')).toEqual('');
+  });
+});
+
+test('first character capitalized', () => {
+  expect(capitalize('english')).toEqual('English');
 });
